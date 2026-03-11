@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Bebas+Neue&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --g1: #D4A843;
+  --g2: #C08B2A;
+  --g3: #EDD07A;
+  --g4: rgba(212, 168, 67, 0.12);
+  --grd: linear-gradient(135deg, #D4A843 0%, #C08B2A 60%, #EDD07A 100%);
+  --green: #22c55e;
+  --bg:  #070707;
+  --bg2: #0a0a0a;
+  --bg3: #111111;
+  --bg4: #161616;
+  --bg5: #1c1c1c;
+  --text: #f0f0f0;
+  --muted: #666;
+  --border:  rgba(212, 168, 67, 0.13);
+  --border2: rgba(212, 168, 67, 0.28);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* safe-area for notched phones */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* prevent text size inflation on iOS rotation */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevent images from overflowing containers (only non-absolute) */
+img:not([style*="position"]), video { max-width: 100%; }
+
+/* Smooth tap highlight on mobile */
+a, button { -webkit-tap-highlight-color: rgba(212,168,67,.15); }
+
+/* Bigger tap targets on mobile */
+@media (max-width: 600px) {
+  a, button { min-height: 44px; }
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  letter-spacing: -.025em;
+  line-height: 1.0;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+
+/* Selection color */
+::selection { background: rgba(212,168,67,.3); color: #fff; }
+
+/* Scrollbar — sutil e premium */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(212,168,67,.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(212,168,67,.45); }

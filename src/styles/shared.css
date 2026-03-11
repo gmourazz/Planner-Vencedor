@@ -1,0 +1,111 @@
+/* ── CONTAINER ──────────────────────────────────────────────── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+@media (max-width: 480px) {
+  .container { padding: 0 18px; }
+}
+
+/* ── EYEBROW ────────────────────────────────────────────────── */
+.sec-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--g1);
+  margin-bottom: 18px;
+}
+.sec-eyebrow::before,
+.sec-eyebrow::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--g1);
+  opacity: .45;
+}
+
+/* ── TITLES ─────────────────────────────────────────────────── */
+.sec-title {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  text-align: center;
+  color: #fff;
+  margin-bottom: .6rem;
+  letter-spacing: -.03em;
+  line-height: 1.0;
+}
+.sec-title em {
+  font-style: normal;
+  background: linear-gradient(110deg, var(--g1) 0%, var(--g3) 55%, var(--g1) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-title 5s linear infinite;
+}
+@keyframes shimmer-title {
+  to { background-position: 200% center; }
+}
+
+.sec-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: .97rem;
+  max-width: 540px;
+  margin: 0 auto 56px;
+  line-height: 1.8;
+}
+
+/* ── FADE ANIMATIONS ────────────────────────────────────────── */
+.fade {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── CTA BUTTON ─────────────────────────────────────────────── */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--grd);
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 1rem 2.6rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+  box-shadow: 0 4px 36px rgba(212,168,67,.28);
+}
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 52px rgba(212,168,67,.45);
+}
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.28) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .6s ease;
+}
+.cta-btn:hover::after {
+  transform: translateX(120%);
+}

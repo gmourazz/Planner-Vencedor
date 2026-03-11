@@ -1,0 +1,218 @@
+.section {
+  background: var(--bg2);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,67,.3) 50%, transparent);
+}
+
+/* ── FEATURED TARTA ── */
+.featured {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  min-height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(212,168,67,.18);
+  margin-bottom: 52px;
+  background: var(--bg3);
+}
+
+/* FOTO REAL DO TARTA */
+.featuredPhoto {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg4);
+}
+.featuredPhotoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform .6s ease;
+}
+.featured:hover .featuredPhotoImg {
+  transform: scale(1.04);
+}
+.featuredPhotoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 50%,
+    rgba(17,17,17,.92) 100%
+  );
+  pointer-events: none;
+}
+
+/* Badge flutuante na foto */
+.floatBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,0,0,.75);
+  border: 1px solid rgba(212,168,67,.35);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: .72rem;
+  font-weight: 800;
+  color: var(--g1);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* CONTEÚDO */
+.featuredContent {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.featuredEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--g1);
+}
+
+.featuredName {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+}
+.verifiedBadge { color: #4da6ff; display: flex; flex-shrink: 0; }
+
+.featuredRole {
+  font-size: .84rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.featuredHandle {
+  font-size: .78rem;
+  color: var(--g2);
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+
+.divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(to right, var(--g1), transparent);
+  margin: 4px 0;
+}
+
+.stars { display: flex; gap: 3px; }
+
+.quoteIcon {
+  color: rgba(212,168,67,.2);
+  line-height: 1;
+  margin-bottom: -8px;
+}
+
+.featuredQuote {
+  font-size: 1.05rem;
+  color: #ccc;
+  line-height: 1.85;
+  font-style: italic;
+  border: none;
+  padding: 0;
+}
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color .3s, box-shadow .3s;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(to bottom, var(--g1), var(--g2));
+  opacity: 0;
+  transition: opacity .3s;
+}
+.card:hover { border-color: var(--border2); box-shadow: 0 8px 40px rgba(0,0,0,.5); }
+.card:hover::before { opacity: 1; }
+
+.quote {
+  font-size: .88rem;
+  color: #b0b0b0;
+  line-height: 1.75;
+  font-style: italic;
+  flex: 1;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--g4);
+  border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--g1);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.name { font-weight: 700; font-size: .88rem; color: #fff; }
+.role { font-size: .74rem; color: var(--muted); margin-top: 2px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: 320px auto;
+  }
+  .featuredPhoto { min-height: 320px; }
+  .featuredPhotoOverlay {
+    background: linear-gradient(to bottom, transparent 40%, rgba(17,17,17,.95) 100%);
+  }
+  .featuredContent { padding: 32px 24px; }
+  .featuredName { font-size: 1.8rem; }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+}
