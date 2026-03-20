@@ -24,6 +24,11 @@
   background: var(--bg3);
 }
 
+/* Reversed: content left, photo right */
+.featuredReverse {
+  grid-template-columns: 1fr 480px;
+}
+
 /* FOTO REAL DO TARTA */
 .featuredPhoto {
   position: relative;
@@ -46,6 +51,18 @@
   inset: 0;
   background: linear-gradient(
     to right,
+    transparent 50%,
+    rgba(17,17,17,.92) 100%
+  );
+  pointer-events: none;
+}
+
+/* Overlay for reversed card (photo on right, fade to left) */
+.featuredPhotoOverlayLeft {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
     transparent 50%,
     rgba(17,17,17,.92) 100%
   );
@@ -140,13 +157,68 @@
   padding: 0;
 }
 
+/* ── PERRONE VIDEO BLOCK ── */
+.perrone {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  min-height: 460px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(212,168,67,.18);
+  margin-bottom: 52px;
+  background: var(--bg3);
+}
+
+.perroneContent {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.perroneVideo {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+.perroneVideo video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* gold top bar */
+.perroneVideo::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grd);
+  z-index: 2;
+}
+
+@media (max-width: 860px) {
+  .perrone {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 400px;
+  }
+  .perroneVideo { min-height: 400px; }
+  .perroneContent { padding: 32px 24px; }
+}
+@media (max-width: 560px) {
+  .perrone { grid-template-rows: auto 300px; }
+  .perroneVideo { min-height: 300px; }
+}
+
 /* ── GRID ── */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
-@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+@media (max-width: 800px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
 
 .card {
   background: var(--bg3);
@@ -202,17 +274,27 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 860px) {
-  .featured {
+  .featured,
+  .featuredReverse {
     grid-template-columns: 1fr;
     grid-template-rows: 320px auto;
   }
+  /* On mobile, photo always first (top), content below */
+  .featuredReverse .featuredPhoto { order: -1; }
+  .featuredReverse .featuredContent { order: 1; }
   .featuredPhoto { min-height: 320px; }
-  .featuredPhotoOverlay {
+  .featuredPhotoOverlay,
+  .featuredPhotoOverlayLeft {
     background: linear-gradient(to bottom, transparent 40%, rgba(17,17,17,.95) 100%);
   }
   .featuredContent { padding: 32px 24px; }
   .featuredName { font-size: 1.8rem; }
 }
-@media (max-width: 560px) {
-  .grid { grid-template-columns: 1fr; }
+@media (max-width: 600px) {
+  .section { padding: 64px 0; }
+  .featured,
+  .featuredReverse { grid-template-rows: 260px auto; margin-bottom: 32px; }
+  .featuredPhoto { min-height: 260px; }
+  .featuredName { font-size: 1.5rem; }
+  .featuredQuote { font-size: .95rem; }
 }

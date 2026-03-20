@@ -113,6 +113,24 @@
   margin-bottom: 24px;
 }
 
+@media (max-width: 600px) {
+  .section { padding: 64px 20px; }
+  .bigCta {
+    /* reduz fonte e letter-spacing para caber em 1 linha no iPhone SE */
+    font-size: 0.8rem !important;
+    letter-spacing: 0.06em !important;
+    padding: 1rem 1.5rem !important;
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+  /* reduz ícone de seta */
+  .bigCta svg { width: 16px !important; height: 16px !important; }
+  .title { font-size: clamp(2rem, 7vw, 2.6rem); }
+  .sub { font-size: .88rem; margin-bottom: 28px; }
+  .trustRow { gap: 8px; }
+}
+
 /* Mini prova social */
 .socialProof {
   display: flex;

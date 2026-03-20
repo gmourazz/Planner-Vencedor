@@ -1,0 +1,244 @@
+/* ── ATHLETES SECTION ── */
+.section {
+  background: var(--bg);
+  padding: 96px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,168,67,.3) 50%, transparent);
+}
+
+.bgGlow {
+  position: absolute;
+  width: 800px;
+  height: 400px;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(212,168,67,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 52px;
+}
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 640px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--g1);
+  border: 1px solid rgba(212,168,67,.22);
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(212,168,67,.07);
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: .03em;
+  color: #fff;
+  line-height: 1.05;
+  margin: 0;
+}
+.title em {
+  font-style: normal;
+  background: linear-gradient(135deg, #D4A843, #EDD07A, #C08B2A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sub {
+  font-size: .92rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── PHOTO GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Make cards in first row taller */
+.grid .card:nth-child(1),
+.grid .card:nth-child(2),
+.grid .card:nth-child(3) {
+  grid-row: span 1;
+}
+
+/* 3 columns × 3 rows = 9 cards */
+.card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: #111;
+  cursor: pointer;
+}
+/* Gold border glow on hover */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: border-color .3s, box-shadow .3s;
+  pointer-events: none;
+  z-index: 4;
+}
+.card:hover::after {
+  border-color: rgba(212,168,67,.55);
+  box-shadow: inset 0 0 20px rgba(212,168,67,.08), 0 0 24px rgba(212,168,67,.18);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+  filter: brightness(.88) saturate(.8);
+}
+.card:hover .img {
+  transform: scale(1.07);
+  filter: brightness(.75) saturate(.7);
+}
+
+/* Dark gradient overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(0,0,0,.5) 70%,
+    rgba(0,0,0,.88) 100%
+  );
+  z-index: 2;
+}
+
+/* Position badge top-right */
+.posBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: rgba(212,168,67,.15);
+  border: 1px solid rgba(212,168,67,.35);
+  color: var(--g1);
+  padding: 3px 9px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+/* Name + club at bottom */
+.info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.name {
+  font-size: .92rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .01em;
+}
+.club {
+  font-size: .72rem;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .03em;
+}
+
+/* ── BOTTOM STATS BAR ── */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 28px;
+  background: rgba(212,168,67,.06);
+  border: 1px solid rgba(212,168,67,.14);
+  border-radius: 999px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.bottomStat {
+  font-size: .82rem;
+  color: var(--muted);
+}
+.bottomStat strong {
+  color: var(--g1);
+  font-weight: 700;
+}
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(212,168,67,.3);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .card { aspect-ratio: 2 / 3; }
+}
+@media (max-width: 600px) {
+  .section { padding: 64px 20px; }
+}
+@media (max-width: 560px) {
+  .section { padding: 64px 16px; }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  /* hide last card so grid stays even */
+  .card:last-child { display: none; }
+  .card { aspect-ratio: 3 / 4; }
+  .posBadge { font-size: .6rem; }
+  .name { font-size: .82rem; }
+  .bottomBar { gap: 14px; padding: 14px 20px; }
+  .dot { display: none; }
+}

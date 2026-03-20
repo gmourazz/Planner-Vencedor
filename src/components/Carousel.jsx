@@ -7,10 +7,10 @@ import styles from "./Carousel.module.css";
 const SLIDES = [
   {
     src:     "/img/carrosselum.png",
-    alt:     "Jovens atletas com o Planner Vencedor",
-    club:    "Jovens Atletas",
-    caption: "Dois jovens jogadores recebendo o Planner Vencedor das mãos do criador.",
-    badge:   "🏆 Próxima Geração",
+    alt:     "Rodrigo Caetano com seus filhos e o Planner Vencedor",
+    club:    "Seleção Brasileira",
+    caption: "Rodrigo Caetano, Diretor Geral da Seleção Brasileira, ao lado dos seus filhos com o Planner Vencedor.",
+    badge:   "🇧🇷 Seleção Brasileira",
   },
   {
     src:     "/img/carroseldois.png",

@@ -84,6 +84,9 @@
   transform: translateY(-50%);
   z-index: 10;
   width: 48px; height: 48px;
+  /* min-height: 0 evita que a regra global "button { min-height: 44px }"
+     deforme o círculo — o height explícito já garante área de toque */
+  min-height: 0;
   border-radius: 50%;
   background: rgba(10,10,10,.75);
   border: 1px solid rgba(212,168,67,.3);
@@ -187,6 +190,9 @@
 }
 .dot {
   width: 8px; height: 8px;
+  /* min-height: 0 impede que "button { min-height: 44px }" do global
+     transforme os dots de círculos em ovais alongados */
+  min-height: 0;
   border-radius: 50%;
   background: #2a2a2a;
   border: 1px solid #3a3a3a;
@@ -229,7 +235,7 @@
 @media (max-width: 900px) {
   .stage {
     grid-template-columns: 1fr;
-    grid-template-rows: 480px auto;
+    grid-template-rows: 460px auto;
   }
   .imgOverlay {
     background: linear-gradient(
@@ -244,12 +250,24 @@
     border-top: 1px solid rgba(212,168,67,.1);
   }
   .panel::before { display: none; }
-  .track { min-height: 480px; }
-  .arrowLeft  { left: 12px; }
-  .arrowRight { right: 12px; }
+  .track { width: 100%; min-height: 460px; }
+  /* setas menores e mais contrastadas no mobile */
+  .arrow {
+    width: 40px; height: 40px;
+    background: rgba(5,5,5,.85);
+    border-color: rgba(212,168,67,.45);
+  }
+  .arrowLeft  { left: 10px; }
+  .arrowRight { right: 10px; }
+}
+@media (max-width: 600px) {
+  .section { padding-top: 64px; }
+  .header { padding-bottom: 40px; }
 }
 @media (max-width: 500px) {
-  .stage { grid-template-rows: 360px auto; }
-  .track { min-height: 360px; }
+  .stage { grid-template-rows: 320px auto; }
+  .track { width: 100%; min-height: 320px; }
+  .arrow { width: 36px; height: 36px; }
   .caption { font-size: .95rem; }
+  .panel { padding: 28px 20px 40px; }
 }

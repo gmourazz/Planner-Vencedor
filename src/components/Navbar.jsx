@@ -113,7 +113,7 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
         >
           <ShoppingCart size={16} />
-          Comprar Agora — R$ 98
+          Comprar Agora · R$ 98
         </a>
         <p className={styles.drawerSub}>Frete grátis · 12× sem juros</p>
       </div>

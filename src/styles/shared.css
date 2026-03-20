@@ -5,7 +5,7 @@
   padding: 0 28px;
 }
 @media (max-width: 480px) {
-  .container { padding: 0 18px; }
+  .container { padding: 0 16px; }
 }
 
 /* ── EYEBROW ────────────────────────────────────────────────── */
@@ -108,4 +108,11 @@
 }
 .cta-btn:hover::after {
   transform: translateX(120%);
+}
+@media (max-width: 600px) {
+  .cta-btn {
+    font-size: .92rem;
+    padding: .9rem 2rem;
+  }
+  .sec-sub { margin-bottom: 36px; }
 }

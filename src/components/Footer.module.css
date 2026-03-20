@@ -35,3 +35,11 @@
 .links a:hover { color: var(--g1); }
 
 .copy { color: #333; font-size: .76rem; }
+
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: calc(44px + 72px + env(safe-area-inset-bottom));
+    font-size: .78rem;
+  }
+  .logo { font-size: 1.4rem; }
+}

@@ -8,7 +8,7 @@ const SPECS = [
   { label: "Capa",      value: "Plástico duro preto" },
   { label: "Edição",    value: "2026" },
   { label: "Conteúdo",  value: "Planejamento anual completo para jogadores" },
-  { label: "Preço",     value: "R$ 98 — 12x de R$ 9,65 sem juros" },
+  { label: "Preço",     value: "R$ 98 · 12x de R$ 9,65 sem juros" },
   { label: "Frete",     value: "Grátis na 1ª compra · Entrega seg/qui" },
 ];
 
@@ -25,7 +25,7 @@ export default function Specs() {
             </h2>
             <p className={styles.desc}>
               Cada detalhe foi pensado para você levar seus objetivos a sério.
-              Do material da capa ao conteúdo interno — é um produto de atleta, para atleta.
+              Do material da capa ao conteúdo interno, é um produto de atleta, para atleta.
             </p>
             <a
               href={ML_URL}

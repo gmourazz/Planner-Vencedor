@@ -12,6 +12,7 @@ import HowItWorks   from "./components/HowItWorks";
 import Carousel     from "./components/Carousel";
 import Gallery      from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
+import Athletes     from "./components/Athletes";
 import Specs        from "./components/Specs";
 import FAQ          from "./components/FAQ";
 import CTAFinal     from "./components/CTAFinal";
@@ -39,6 +40,7 @@ export default function App() {
       <Carousel />
       <Gallery />
       <Testimonials />
+      <Athletes />
       <Specs />
       <FAQ />
       <CTAFinal />

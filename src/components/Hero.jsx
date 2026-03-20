@@ -301,9 +301,53 @@ const CSS = `
   }
   @media (max-width: 820px) {
     .hv-grid { grid-template-columns: 1fr; min-height: auto; padding: 0 20px; }
-    .hv-left  { padding: 48px 0 32px; border-right: none; border-bottom: 1px solid rgba(200,164,90,0.08); }
-    .hv-right { padding: 32px 0 56px; background: none; }
+    /* centraliza todo o conteúdo no mobile */
+    .hv-left {
+      padding: 40px 0 28px;
+      border-right: none;
+      border-bottom: 1px solid rgba(200,164,90,0.08);
+      align-items: center;
+      text-align: center;
+    }
+    .hv-tag  { justify-content: center; }
+    .hv-div  { margin: 20px auto; }
+    .hv-body { text-align: center; max-width: 100%; }
+    .hv-right {
+      padding: 28px 0 64px;
+      background: none;
+      align-items: center;
+      text-align: center;
+    }
+    .hv-price-wrap   { align-items: center; }
+    .hv-price-details { align-items: center; }
+    .hv-price-frete  { justify-content: center; }
     .hv-cta-main { font-size: 17px; }
+    /* oculta linha vertical central (layout 2 colunas desktop) */
+    .hv-bg-line { display: none; }
+  }
+  @media (max-width: 480px) {
+    .hv-grid { padding: 0 16px; }
+    .hv-venca { font-size: 60px; }
+    .hv-year  { font-size: 88px; }
+    .hv-sub   { font-size: 11px; }
+    .hv-body  { font-size: 13.5px; }
+    .hv-cta-main { font-size: 15px; padding: 17px 24px; }
+    .hv-price { font-size: 56px; }
+    /* badge: reduz letter-spacing e padding para caber em 1 linha */
+    .hv-promo {
+      font-size: 8px;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      margin-bottom: 20px;
+    }
+    .hv-tag { font-size: 7.5px; letter-spacing: 0.18em; margin-bottom: 14px; }
+    .hv-left { padding-top: 32px; }
+  }
+  @media (max-width: 360px) {
+    .hv-venca { font-size: 52px; }
+    .hv-year  { font-size: 76px; }
+    .hv-price { font-size: 48px; }
+    .hv-promo { font-size: 7.5px; letter-spacing: 0.04em; }
   }
 `;
 
@@ -357,7 +401,7 @@ export default function Hero() {
               <span className="hv-price-old">De R$ 129,00</span>
               <div className="hv-price-badge">
                 <Zap size={9} />
-                Promoção — 24% off
+                Promoção · 24% off
               </div>
               <div className="hv-price">R$&nbsp;98</div>
               <div className="hv-price-details">

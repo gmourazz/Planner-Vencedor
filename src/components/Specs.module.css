@@ -1,4 +1,5 @@
 .section { background: var(--bg); padding: 96px 24px; }
+@media (max-width: 600px) { .section { padding: 64px 20px; } }
 
 .inner {
   display: grid;
